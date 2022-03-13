@@ -5,14 +5,18 @@ class Node:
     down_neighbor = None
     left_neighbor = None
     up_neighbor = None
+    real_cost = 0 
+    heuristic_value = 0
+    evaluation = 0
     
     def __init__(self,x,y,element_type,is_visited = False):
         self.x = x # x coordinate
         self.y = y # y coordinate
         self.element_type =element_type # type of this node for ex: "E" means exit
         self.is_visited = is_visited # initially not visited
-        # daha sonra buraya heuristic degeri 
-        # gercek masrafi vs de ekle !!!
+        
+    def __lt__(self, other):
+        return (self.evaluation < other.evaluation)
 
     def __str__(self): # objeyi print edebilmek icin
         return f"Type: {self.element_type} x = {self.x} y = {self.y} is visited = {self.is_visited}"

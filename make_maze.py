@@ -1,4 +1,5 @@
 from Node import Node
+import sys
 
 def make_maze(maze_template):
 
@@ -14,16 +15,26 @@ def make_maze(maze_template):
 
         maze.append(row_items) 
 
-    # komsular atanacak
-    row = len(maze) # bu sayi satirin limit olacak yani en buyuk satir sayisi = row - 1
-    col = len(maze[0]) # bu sayi sutunun limiti olacak yani en buyuk sutun sayisi = col - 1
-    # maze dikdortgen olacagi icin col = maze[0] diyebildik
+    row = len(maze)
+    col = len(maze[0])
+
+    # x ler saga dogru
+    # y ler ise asagi dogru artacak
+    
+    start_count = 0
+    end_count = 0
 
     for i in range(len(maze)):
         for j in range(len(maze[i])):
             
-            # sag komsu sadece x degeri ile ilgili 
-            # x i 1 fazla varsa sag komsusu vardir
+            if maze[i][j].element_type == "S":
+                start_count += 1
+            elif maze[i][j].element_type == "E":
+                end_count += 1
+            elif not (maze[i][j].element_type == "W" or maze[i][j].element_type == "F"):
+                print("Bad maze element type! Elements of the maze could only be \"S\", \"E\", \"W\" or \"F\"")
+                sys.exit()
+
             if maze[i][j].x < col - 1:
                 maze[i][j].right_neighbor = maze[i][j + 1]
 
@@ -36,11 +47,8 @@ def make_maze(maze_template):
             if maze[i][j].y != 0: # ust komsu
                 maze[i][j].up_neighbor = maze[i - 1][j]
 
-        
+    if not (start_count == 1 and end_count == 1):
+        print("Bad maze! Maze must have 1 start and 1 exit point!")
+        sys.exit()
+
     return maze
-
-# x saga dogru artacak
-# en soldakilerin x degeri 0, en sagdakilerin x degeri ise col - 1
-
-# y asagi dogru artacak
-# en usttekilerin y degeri 0, en asagidakilerin y degeri sie row - 1

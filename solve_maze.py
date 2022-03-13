@@ -1,6 +1,7 @@
 from breadth_first_search import breadth_first_search
 from depth_first_search import depth_first_search
 from a_star_search import a_star_search
+from greedy_best_first_search import greedy_best_first_search
 
 def solve_maze(maze,algorithm):
 
@@ -18,6 +19,8 @@ def solve_maze(maze,algorithm):
     elif algorithm == "depth_first_search":
         solution = depth_first_search(maze,start_x,start_y)
     elif algorithm == "a_star_search":
-        solution = a_star_search(maze,start_x,start_y,end_x,end_y)
+        solution = a_star_search(maze,start_x,start_y,end_x,end_y,"shortest_distance")
+    elif algorithm == "greedy_best_first_search":
+        solution = greedy_best_first_search(maze,start_x,start_y,end_x,end_y,"shortest_distance")
     
     return solution
