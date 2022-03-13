@@ -1,8 +1,38 @@
 from Node import Node
 import sys
+from flood_fill import flood_fill
 
 def make_maze(maze_template):
 
+    clone_maze = []
+
+    for i in range(len(maze_template)):
+        line = []
+        for j in range(len(maze_template[i])):
+            line.append(maze_template[i][j])
+
+        clone_maze.append(line)
+
+    start_x = 0
+    start_y = 0
+    end_x = 0
+    end_y = 0
+
+    for i in range(len(maze_template)):
+        for j in range(len(maze_template[i])):
+            if maze_template[i][j] == "S":
+                start_x = j
+                start_y = i
+            elif maze_template[i][j] == "E":
+                end_x = j
+                end_y = i
+
+    flood_fill(clone_maze,start_y,start_x)
+    if not (clone_maze[start_y][start_x] == "X" and clone_maze[end_y][end_x] == "X"):
+        print("This maze don't have a solution!")
+        sys.exit()
+    
+    # orjinal kismin basi
     maze = []
 
     for i in range(len(maze_template)):
@@ -35,7 +65,7 @@ def make_maze(maze_template):
                 print("Bad maze element type! Elements of the maze could only be \"S\", \"E\", \"W\" or \"F\"")
                 sys.exit()
 
-            if maze[i][j].x < col - 1:
+            if maze[i][j].x < col - 1: # sag komsu
                 maze[i][j].right_neighbor = maze[i][j + 1]
 
             if maze[i][j].x != 0: # sol komsu

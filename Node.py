@@ -59,5 +59,3 @@ class Node:
             return False
         else: 
             return True
-
-    

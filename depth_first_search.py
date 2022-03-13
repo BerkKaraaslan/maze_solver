@@ -1,4 +1,5 @@
 from queue import LifoQueue
+import sys
 
 def depth_first_search(maze,start_x,start_y):
 
@@ -43,4 +44,7 @@ def depth_first_search(maze,start_x,start_y):
                 un.is_visited = True
                 visited.append(un)
                 stack.put(un)
+
+    print("This maze don't have a solution!")
+    sys.exit()
     

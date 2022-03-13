@@ -1,4 +1,5 @@
 import queue
+import sys
 
 def breadth_first_search(maze,start_x,start_y):
     
@@ -43,3 +44,6 @@ def breadth_first_search(maze,start_x,start_y):
                 un.is_visited = True
                 visited.append(un)
                 q.put(un)
+
+    print("This maze don't have a solution!")
+    sys.exit()
