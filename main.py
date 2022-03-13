@@ -1,5 +1,4 @@
 import sys
-
 from read_maze import read_maze
 from make_maze import make_maze
 from solve_maze import solve_maze
@@ -14,6 +13,6 @@ maze_template = read_maze(input_file) # labirent sablonunu dosyadan okur
 
 maze = make_maze(maze_template) # verilen sablona gore labirenti olusturur
 
-solution = solve_maze(maze,"a_star_search") # istenilen algoritma ile labirenti cozer
+solution_tuple = solve_maze(maze,"a_star_search") # istenilen algoritma ile labirenti cozer
 
-write_solution(solution,output_file) # cozumu dosyaya yazar
+write_solution(solution_tuple,output_file) # cozumu dosyaya yazar

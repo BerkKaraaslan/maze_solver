@@ -1,7 +1,9 @@
 
-def write_solution(solution,filename):
+def write_solution(solution_tuple,filename):
     with open(filename, "w") as f:
 
+        solution = solution_tuple[0]
+        execution_time = solution_tuple[1]
         for i in range(len(solution)):
 
             row = ""
@@ -18,6 +20,7 @@ def write_solution(solution,filename):
 
             f.write(row + "\n")
 
-
+        f.write("\n")
+        f.write("Execution time is: " + str(execution_time) + " seconds")
         f.close()
     

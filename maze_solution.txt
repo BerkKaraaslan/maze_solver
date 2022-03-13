@@ -2,3 +2,5 @@ S,X,F,F,F
 X,X,W,W,W
 W,X,W,F,F
 W,E,W,W,W
+
+Execution time is: 1.014906883239746 seconds

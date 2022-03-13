@@ -1,10 +1,8 @@
-import imp
 from breadth_first_search import breadth_first_search
 from depth_first_search import depth_first_search
 from a_star_search import a_star_search
 from greedy_best_first_search import greedy_best_first_search
-from flood_fill import flood_fill
-from Node import Node
+import time
 
 def solve_maze(maze,algorithm):
 
@@ -17,6 +15,8 @@ def solve_maze(maze,algorithm):
                 end_x = j
                 end_y = i
 
+    start_time = time.time()
+
     if algorithm == "breadth_first_search":
         solution = breadth_first_search(maze,start_x,start_y)
     elif algorithm == "depth_first_search":
@@ -25,5 +25,6 @@ def solve_maze(maze,algorithm):
         solution = a_star_search(maze,start_x,start_y,end_x,end_y,"shortest_distance")
     elif algorithm == "greedy_best_first_search":
         solution = greedy_best_first_search(maze,start_x,start_y,end_x,end_y,"shortest_distance")
-    
-    return solution
+
+    end_time = time.time()
+    return (solution, end_time - start_time)
