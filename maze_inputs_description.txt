@@ -1,0 +1,8 @@
+maze_input_1.txt -> Kucuk bir maze. Cozumu var.
+maze_input_2.txt -> Buyuk bir maze. Cozumu var.
+maze_input_3.txt -> Buyuk bir maze. Cozumu var. Bu maze'de hic duvar yok. Her yer free!
+maze_input_4.txt -> Buyuk bir maze. Cozumu var.
+maze_input_5.txt -> Buyuk bir maze. Cozumu yok.
+maze_input_6.txt -> Kucuk bir maze. Cozumu yok cunku icinde olmamasi gereken bir karakter var "Q".
+maze_input_7.txt -> Kucuk bir maze. Cozumu yok cunku icinde exit noktasi yani "E" yok.
+maze_input_8.txt -> Kucuk bir maze. Cozumu yok cunku icinde baslangic noktasi yani "S" yok.

@@ -1,0 +1,4 @@
+S,F,F,F,F
+F,F,W,W,W
+W,F,W,F,F
+W,W,W,W,W
